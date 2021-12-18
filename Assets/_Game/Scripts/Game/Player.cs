@@ -53,8 +53,14 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        HandleMovement();
+        //HandleMovement();
 
+    }
+
+    void FixedUpdate()
+    {
+
+        HandleMovement();
 
     }
 
@@ -79,7 +85,7 @@ public class Player : MonoBehaviour
 
                 float _velocityMultiplier = Mathf.Clamp(Vector3.Distance(_startPostion, destination), 0f, (PlayerController.instance.playerMaxVelocity * 0.1f)) / (PlayerController.instance.playerMaxVelocity * 0.1f);
 
-                Vector3 _moveOffset = Vector3.Normalize(_positionOffset) * PlayerController.instance.playerMaxVelocity * _velocityMultiplier * Time.deltaTime;
+                Vector3 _moveOffset = Vector3.Normalize(_positionOffset) * PlayerController.instance.playerMaxVelocity * _velocityMultiplier * Time.fixedDeltaTime;
                 _moveOffset = Vector3.ClampMagnitude(_moveOffset, _positionOffset.magnitude);
 
                 rigidbody.MovePosition(_startPostion - _moveOffset);
@@ -101,7 +107,7 @@ public class Player : MonoBehaviour
 
                 //float _velocityMultiplier = Mathf.Clamp(Vector3.Distance(_startPostion, destination), 0f, (PlayerController.instance.playerMaxVelocity * 0.1f)) / (PlayerController.instance.playerMaxVelocity * 0.1f);
 
-                Vector3 _moveOffset = Vector3.Normalize(_positionOffset) * PlayerController.instance.playerMaxVelocity * _velocityMultiplier * Time.deltaTime;
+                Vector3 _moveOffset = Vector3.Normalize(_positionOffset) * PlayerController.instance.playerMaxVelocity * _velocityMultiplier * Time.fixedDeltaTime;
                 _moveOffset = Vector3.ClampMagnitude(_moveOffset, _positionOffset.magnitude);
 
                 rigidbody.MovePosition(_startPostion - _moveOffset);
@@ -110,7 +116,7 @@ public class Player : MonoBehaviour
                 Quaternion _startRotation = playerMesh.transform.rotation;
                 Quaternion _finalRotaion = Quaternion.Euler(destinationRotation);
 
-                playerMesh.transform.rotation = (Quaternion.LerpUnclamped(_startRotation, _finalRotaion, Time.deltaTime * 32f));
+                playerMesh.transform.rotation = (Quaternion.LerpUnclamped(_startRotation, _finalRotaion, Time.fixedDeltaTime * 32f));
 
             }
 

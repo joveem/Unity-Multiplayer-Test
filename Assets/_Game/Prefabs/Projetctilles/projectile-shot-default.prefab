@@ -46,11 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2743b59dff32d5344864847f15e5aa1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   isLocalEntinty: 0
   entityId: 
   ownerId: 
   damage: 10
-  velocity: 5
+  velocity: 7
   lifeTime: 5
 --- !u!54 &2418636852959658803
 Rigidbody:

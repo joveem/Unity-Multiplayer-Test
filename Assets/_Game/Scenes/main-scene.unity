@@ -4687,7 +4687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123f5a0c59df60e46b1fa3b22628432a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxVelocity: 20
+  playerMaxVelocity: 5
   futurePlayerPositionDeltaTime: 0.1
 --- !u!1 &1162187185
 GameObject:

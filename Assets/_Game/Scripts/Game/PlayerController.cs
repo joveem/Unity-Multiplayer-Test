@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        HandleMovementInputs();
         HandleFireInputs();
 
     }
@@ -34,6 +33,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
+        HandleMovementInputs();
 
     }
 
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if (NetworkDebugger.instance.localPlayeInputRigidbody != null)
         {
 
-            Vector3 _futureMovement = _movementInput * playerMaxVelocity * Time.deltaTime;
+            Vector3 _futureMovement = _movementInput * playerMaxVelocity * Time.fixedDeltaTime;
             Vector3 _destinationPosition = NetworkDebugger.instance.localPlayeInputRigidbody.position + _futureMovement;
 
 
